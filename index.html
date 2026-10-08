@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>西行陕西 · 西交新生旅游指南</title>
+<link rel="stylesheet" href="assets/css/style.css">
+<script>
+/* 提前应用主题，避免刷新闪烁 */
+(function(){try{var t=localStorage.getItem('xingxi-theme');if(!t)t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+</script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-logo">西行陕西<small>XJTU 新生旅游指南</small></div>
+  <div class="nav-links">
+    <a href="index.html" class="active">推荐引擎</a>
+    <a href="shaanxi.html">认识陕西</a>
+    <button class="theme-toggle" type="button">🌙 深色</button>
+  </div>
+</nav>
+
+<header class="hero">
+  <h1>西行陕西</h1>
+  <p>以西安交通大学为原点，根据你的日期、偏好与预算，推荐最适合的陕西旅行目的地。</p>
+  <span class="badge">🍁 新生专属 · 学生优惠 · 双校区出发</span>
+</header>
+
+<main class="container">
+
+  <!-- ========== 条件面板 ========== -->
+  <section class="panel" id="form-panel">
+    <h3>🧭 告诉我你的计划，我来推荐</h3>
+
+    <div class="row">
+      <div class="field" style="flex:1.2">
+        <label>📍 出发校区</label>
+        <div class="campus-grid" id="campus-box">
+          <div class="campus-card selected" data-campus="xingqing">
+            <div class="nm">兴庆校区</div>
+            <div class="sb">西安市区 · 地铁3号线</div>
+          </div>
+          <div class="campus-card" data-campus="innovation">
+            <div class="nm">创新港校区</div>
+            <div class="sb">咸阳交界 · 地铁5号线</div>
+          </div>
+        </div>
+      </div>
+      <div class="field">
+        <label>📅 出发日期</label>
+        <input type="date" id="date-input">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="field">
+        <label>🎯 旅行偏好（可多选）</label>
+        <div class="chips" id="pref-box">
+          <div class="chip" data-pref="自然山水">⛰️ 自然山水</div>
+          <div class="chip" data-pref="人文历史">🏯 人文历史</div>
+          <div class="chip" data-pref="美食之旅">🍜 美食之旅</div>
+          <div class="chip" data-pref="城市休闲">🌆 城市休闲</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="field">
+        <label>💰 预算档位（人均参考）</label>
+        <div class="chips" id="budget-box">
+          <div class="chip" data-budget="poor">🪙 穷游 &lt;300</div>
+          <div class="chip on" data-budget="comfort">💛 舒适 300-800</div>
+          <div class="chip" data-budget="luxury">💎 轻奢 800+</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align:center; margin-top:6px;">
+      <button class="btn" id="btn-recommend">✨ 生成推荐</button>
+    </div>
+  </section>
+
+  <!-- ========== 时间判定 ========== -->
+  <div class="period-banner hidden" id="period-banner">
+    <span class="tag" id="period-tag"></span>
+    <span id="period-text"></span>
+  </div>
+
+  <!-- ========== 推荐结果 ========== -->
+  <h2 class="section-title">📋 为你推荐</h2>
+  <p class="text-muted" id="result-sub" style="margin-bottom:6px;"></p>
+  <div class="sight-grid" id="sight-grid"></div>
+
+</main>
+
+<footer class="footer">
+  <b>西行陕西</b> · 数据更新于 2026-10（门票价格以景区最新公示为准）· 学生优惠仅供参考，请携带有效学生证
+</footer>
+
+<!-- ========== 详情弹层 ========== -->
+<div class="modal-mask" id="modal">
+  <div class="modal">
+    <div class="modal-head">
+      <h2 id="m-title"></h2>
+      <button class="close" id="m-close">×</button>
+    </div>
+    <div class="modal-body" id="m-body"></div>
+  </div>
+</div>
+
+<script src="assets/js/theme.js"></script>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/engine.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

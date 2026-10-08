@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>认识陕西 · 西行陕西</title>
+<link rel="stylesheet" href="assets/css/style.css">
+<script>
+/* 提前应用主题，避免刷新闪烁 */
+(function(){try{var t=localStorage.getItem('xingxi-theme');if(!t)t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+</script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-logo">西行陕西<small>XJTU 新生旅游指南</small></div>
+  <div class="nav-links">
+    <a href="index.html">推荐引擎</a>
+    <a href="shaanxi.html" class="active">认识陕西</a>
+    <button class="theme-toggle" type="button">🌙 深色</button>
+  </div>
+</nav>
+
+<header class="hero" style="padding:56px 24px 48px;">
+  <h1>认识陕西</h1>
+  <p>三秦大地，一省分南北 —— 陕北的雄浑、关中的底蕴、陕南的灵秀，都在等你慢慢发现。</p>
+  <span class="badge">🗺️ 新生第一课 · 读懂陕西的地理与文化</span>
+</header>
+
+<main class="container">
+
+  <!-- ========== 地图区 ========== -->
+  <h2 class="section-title">🗺️ 陕西地图 · 景点分布</h2>
+  <div class="map-wrap">
+    <div id="map-container" class="hidden"></div>
+    <div id="map-fallback" class="map-fallback">
+      <div style="font-size:26px;">🗺️</div>
+      <div>陕西 · 景点分布示意（南北三带）</div>
+      <div class="tip" id="map-tip">接入高德地图后显示真实地图（key 待配置）</div>
+      <div class="bands" id="bands" style="width:100%;"></div>
+    </div>
+  </div>
+
+  <!-- ========== 区域卡片 ========== -->
+  <h2 class="section-title">🏔️ 三大区域</h2>
+  <div class="region-cards" id="region-cards"></div>
+
+  <!-- ========== 全部景点速览 ========== -->
+  <h2 class="section-title">📍 全部景点速览</h2>
+  <div class="sight-grid" id="all-sights"></div>
+
+  <!-- ========== 新生须知 ========== -->
+  <h2 class="section-title">🎓 新生须知</h2>
+  <section class="panel">
+    <div class="row" style="gap:22px;">
+      <div class="field" style="flex:1">
+        <h3>🎫 学生优惠怎么用</h3>
+        <ul class="clean">
+          <li>陕西大部分景区凭全日制学生证享 <b>半价</b>（华山、法门寺、太白山、兵马俑等）</li>
+          <li>部分景区 16 岁以下或 65 岁以上免费（兵马俑、华清宫）</li>
+          <li>西安城墙、钟鼓楼等学生价更划算（城墙学生 27 元）</li>
+          <li>热门景区（华山、兵马俑）<b>必须线上实名预约</b>，无现场售票</li>
+        </ul>
+      </div>
+      <div class="field" style="flex:1">
+        <h3>📅 什么时候出去玩</h3>
+        <ul class="clean">
+          <li><b>周末</b>：关中周边 1-2 日游（洽川、少华山、法门寺）</li>
+          <li><b>小长假</b>：2-3 日游（关山草原、留坝、韩城）</li>
+          <li><b>国庆/春节</b>：3-5 日长线（陕北环线、陕南深度）</li>
+          <li><b>寒暑假</b>：全省深度游最佳窗口，错峰更舒服</li>
+        </ul>
+      </div>
+      <div class="field" style="flex:1">
+        <h3>🛡️ 出行安全提示</h3>
+        <ul class="clean">
+          <li>山岳景区（华山/太白山）带足保暖衣物，关注天气</li>
+          <li>黄河沿线（壶口/洽川）汛期留意水情公告</li>
+          <li>陕北地区干燥风大，注意防晒补水</li>
+          <li>偏远景区（波浪谷/关山）出发前加满油、备好现金</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <b>西行陕西</b> · 数据更新于 2026-10（门票价格以景区最新公示为准）· 学生优惠仅供参考，请携带有效学生证
+</footer>
+
+<!-- ========== 详情弹层 ========== -->
+<div class="modal-mask" id="modal">
+  <div class="modal">
+    <div class="modal-head">
+      <h2 id="m-title"></h2>
+      <button class="close" id="m-close">×</button>
+    </div>
+    <div class="modal-body" id="m-body"></div>
+  </div>
+</div>
+
+<script src="assets/js/theme.js"></script>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/shaanxi.js"></script>
+</body>
+</html>
